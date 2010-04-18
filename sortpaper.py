@@ -39,8 +39,8 @@
 #                        0.0001
 
 import os
-from option_parser import *
 from wp_class import *
+from option_parser import *
 
 def PrintMsg(msg):
 	if not options.get('quiet'):
@@ -57,7 +57,7 @@ def ProcessImage(images,tld):
 				result = options['resolutions'][options.get('resolutions').index(res)]
 			# Or for ratios
 			else:
-				result = STOCK_RATIOS[images.ratio]
+				result = ratios[images.ratio]
 		except (ValueError,KeyError):
 			result = None
 		return result
@@ -132,8 +132,10 @@ if __name__ == '__main__':
 	try:
 		## the options and the arguments, parsed 
 		#
-		(options,args) = ParseOptions(parser)
+		(options,args,ratios) = ParseOptions(parser)
 		
+		if ratios == None:
+			ratios = STOCK_RATIOS
 		if len(args) < 1:
 			raise ValueError('No target directory passed')
 	except ValueError,err:
