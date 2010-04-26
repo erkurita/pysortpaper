@@ -1,0 +1,15 @@
+This is a script you can use to sort out a wallpaper collection by aspect ratios, or resolutions.
+
+A list of the features you can use follows:
+
+- Sort a single folder, ignoring the subdirectories.
+- Extract a list of resolutions or aspect ratios
+- Specify a destination folder
+- Specify how much to deviate from the exact result when calculating the aspect ratio. This means, how accurate
+  you want the program to be when deciding when a wallpaper belongs to an specified ratio. In case you don't
+  know, the ratio is calculated by dividing the width between the height.
+- Keep empty folders or the images in their original location. Useful when you want a copy of the folder.
+
+The application is able to work with subdirectories, which can or cannot be already sorted out by itself.
+It does not not keep track of the files already sorted, as of 2010-04-25. Future implementation of a small
+SQLite database to keep track of a small "wallpaper repository" is in the works, but nothing is promised.

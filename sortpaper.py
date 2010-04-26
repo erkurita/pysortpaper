@@ -139,12 +139,9 @@ if __name__ == '__main__':
 		if len(args) < 1:
 			raise ValueError('No target directory passed')
 	except ValueError,err:
-		print 'main: '+err
+		print 'main: '+err.message
 		parser.print_help()
 		exit(BAD_ARGUMENTS)
-#	except IndexError,err:
-#		print err,args
-#		exit(-3)
 	except OSError,err:
 		print err,work_dir
 		exit(-1)
