@@ -49,8 +49,8 @@ def PrintMsg(msg):
 def ProcessImage(images,tld):
 	def MeetsCriteria(tld):
 		result = None
+		# We're checking either for resolutions
 		try:
-			# We're checking either for resolutions
 			if options.get('resolutions'):
 				# We get the resolution of the current image.
 				res = images.GetResolution(options.get('res_separator'))
