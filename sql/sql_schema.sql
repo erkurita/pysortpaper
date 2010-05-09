@@ -1,0 +1,2 @@
+CREATE TABLE t_directory ( id_directory integer NOT NULL PRIMARY KEY AUTOINCREMENT, path_to text, parent_directory integer, foreign key (parent_directory) references t_directory(id_directory) );
+CREATE TABLE t_image ( id_image integer NOT NULL PRIMARY KEY AUTOINCREMENT, id_directory integer NOT NULL, filename text, ratio double, resolution varchar(15), foreign key (id_directory) references t_directory(id_directory) );
