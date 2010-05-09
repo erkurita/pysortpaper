@@ -357,8 +357,14 @@ class Directory(object):
 						im = Image.open(files)
 						im = None
 						filess[filename] = ImageFile(files)
-					except IOError:
-						pass
+					except IOError,err:
+						if err.errno == 13: # Permission denied
+							print 'GetDirectories(): image',files+':',err.strerror
+						# I've had cases where Image cannot figure out the file type, and throws an IOError
+						# Opening the image with your favorite image processing program, Save As... and 
+						# overwriting it solves the issue, which is beyond the scope of this script.
+						elif err.errno == None: 
+							print 'GetDirectories(): image',files+':',err
 					except ValueError,err:
 						print err
 			os.chdir(cwd)
